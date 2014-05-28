@@ -16,7 +16,8 @@ class simpleapp_tk(Tkinter.Tk):
                                command=self.OnButtonClick)
         button.grid(column=1, row=0)
 		
-        label = Tkinter.Label(self,
+        self.labelVariable = Tkinter.StringVar()
+        label = Tkinter.Label(self,textvariable=self.labelVariable,
                               anchor='w', fg="white",bg="blue")
         label.grid(column=0,row=1,columnspan=2, sticky='EW')
 		
@@ -25,9 +26,9 @@ class simpleapp_tk(Tkinter.Tk):
 
 		
     def OnButtonClick(self):
-        print "You clicked the button!"
+        self.labelVariable.set("You clicked the button!")
     def OnPressEnter(self,event):
-        print "You pressed enter!"
+       self.labelVariable.set("You pressed enter!")
 		
 if __name__ == "__main__":
     app = simpleapp_tk(None)
