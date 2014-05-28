@@ -10,6 +10,7 @@ class simpleapp_tk(Tkinter.Tk):
 		
         self.entry = Tkinter.Entry(self)
         self.entry.grid(column=0, row=0, sticky='EW')
+        self.entry.bind("<Return>", self.OnPressEnter)
 		
         button = Tkinter.Button(self, text=u"Click me!")
         button.grid(column=1, row=0)
@@ -20,6 +21,9 @@ class simpleapp_tk(Tkinter.Tk):
 		
         self.grid_columnconfigure(0, weight=1)
         self.resizable(True,False)
+		
+    def OnPressEnter(self,event):
+        print "You pressed enter!"
 		
 if __name__ == "__main__":
     app = simpleapp_tk(None)
