@@ -26,12 +26,20 @@ class simpleapp_tk(Tkinter.Tk):
 		
         self.grid_columnconfigure(0, weight=1)
         self.resizable(True,False)
+        self.update()
+        self.geometry(self.geometry())
+        self.entry.focus_set()
+        self.entry.selection_range(0, Tkinter.END)
 
 		
     def OnButtonClick(self):
         self.labelVariable.set(self.entryVariable.get() + " (You clicked the button!)")
+        self.entry.focus_set()
+        self.entry.selection_range(0, Tkinter.END)
     def OnPressEnter(self,event):
        self.labelVariable.set(self.entryVariable.get() + " (You pressed enter!)")
+       self.entry.focus_set
+       self.entry.selection_range(0, Tkinter.END)
 		
 if __name__ == "__main__":
     app = simpleapp_tk(None)
